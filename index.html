@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invitación 70 años</title>
+
+<style>
+
+body{
+margin:0;
+font-family:serif;
+}
+
+.section{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+
+.section img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* CONTADOR */
+
+.countdown{
+position:absolute;
+top:58%;
+left:50%;
+transform:translate(-50%,-50%);
+color:white;
+font-size:28px;
+display:flex;
+gap:15px;
+}
+
+/* MAPA */
+
+.map-container{
+position:absolute;
+top:60%;
+left:50%;
+transform:translate(-50%,-50%);
+width:80%;
+height:220px;
+}
+
+.map-container iframe{
+width:100%;
+height:100%;
+border:none;
+border-radius:10px;
+}
+
+/* BOTON */
+
+.confirmar{
+position:absolute;
+bottom:120px;
+left:50%;
+transform:translateX(-50%);
+background:#5b1f1f;
+color:white;
+padding:18px 28px;
+border-radius:30px;
+text-decoration:none;
+font-size:18px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HERO -->
+
+<div class="section">
+<img src="assets/hero.jpg">
+</div>
+
+
+<!-- MENSAJE + CONTADOR -->
+
+<div class="section">
+
+<img src="assets/contador-bg.jpg">
+
+<div class="countdown">
+
+<div>
+<div id="dias"></div>
+<small>días</small>
+</div>
+
+<div>
+<div id="horas"></div>
+<small>hrs</small>
+</div>
+
+<div>
+<div id="minutos"></div>
+<small>min</small>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- UBICACION -->
+
+<div class="section">
+
+<img src="assets/mapa-bg.jpg">
+
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps?q=Monterrey&output=embed">
+</iframe>
+
+</div>
+
+</div>
+
+
+<!-- CONFIRMACION -->
+
+<div class="section">
+
+<img src="assets/confirmacion.jpg">
+
+<a class="confirmar"
+href="https://wa.me/525555555555?text=Confirmo%20mi%20asistencia%20al%20cumpleaños">
+Confirmar asistencia
+</a>
+
+</div>
+
+
+<script>
+
+const eventDate = new Date("Oct 12, 2026 18:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+const distance = eventDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("dias").innerHTML = days;
+document.getElementById("horas").innerHTML = hours;
+document.getElementById("minutos").innerHTML = minutes;
+
+},1000);
+
+</script>
+
+
+</body>
+</html>
